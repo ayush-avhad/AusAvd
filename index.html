@@ -6,14 +6,8 @@
     <title>AusAvd</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-        }
-    </style>
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="antialiased">
     <!-- Header/Navigation -->
@@ -28,7 +22,7 @@
             </div>
             <!-- Mobile Menu Button -->
             <button id="mobile-menu-button" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
@@ -60,21 +54,18 @@
         <section id="services" class="py-12 md:py-20">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Services</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Freelancing Projects Card -->
                 <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-transform transform hover:scale-105 hover:shadow-2xl">
                     <h3 class="text-xl font-semibold text-white mb-2">Freelancing Projects</h3>
                     <p class="text-gray-400">
                         I offer custom solutions for your specific needs, from web development and design to content creation and digital marketing. Let's build something great together.
                     </p>
                 </div>
-                <!-- Services Sell Karna Card -->
                 <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-transform transform hover:scale-105 hover:shadow-2xl">
                     <h3 class="text-xl font-semibold text-white mb-2">My Core Services</h3>
                     <p class="text-gray-400">
                         Explore my pre-defined service packages. These include specialized consultations, audits, and professional implementation of proven strategies.
                     </p>
                 </div>
-                <!-- Sponsorships & Collaborations Card -->
                 <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-transform transform hover:scale-105 hover:shadow-2xl">
                     <h3 class="text-xl font-semibold text-white mb-2">Sponsorships & Collaborations</h3>
                     <p class="text-gray-400">
@@ -88,14 +79,12 @@
         <section id="products" class="py-12 md:py-20">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Products & Training</h2>
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Digital Products Card -->
                 <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-transform transform hover:scale-105 hover:shadow-2xl">
                     <h3 class="text-xl font-semibold text-white mb-2">Digital Products</h3>
                     <p class="text-gray-400">
                         Browse my collection of digital products, including e-books, templates, and toolkits designed to help you achieve your goals faster.
                     </p>
                 </div>
-                <!-- Courses & Training Card -->
                 <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700 transition-transform transform hover:scale-105 hover:shadow-2xl">
                     <h3 class="text-xl font-semibold text-white mb-2">Courses & Training</h3>
                     <p class="text-gray-400">
@@ -105,7 +94,7 @@
             </div>
         </section>
 
-        <!-- Content Section -->
+        <!-- Blog Section -->
         <section id="blog" class="py-12 md:py-20">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Blogging & Affiliate Marketing</h2>
             <div class="bg-gray-800 rounded-2xl p-6 shadow-xl border border-gray-700">
@@ -115,7 +104,7 @@
                 </p>
                 <div class="flex space-x-4 mb-4">
                     <a href="#" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors">Read Latest Post</a>
-                    <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">Visit My Blog</a>
+                    <a id="visit-blog" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors cursor-pointer"> Visit My Blog </a>
                 </div>
                 <h3 class="text-xl font-semibold text-white mt-8 mb-2">Recommended Tools & Resources</h3>
                 <p class="text-gray-400">
@@ -169,10 +158,10 @@
     <footer class="bg-gray-900 py-8">
         <div class="container mx-auto px-4 text-center text-gray-500">
             <p>&copy; 2024 Ayush Avhad. All rights reserved.</p>
-            <div class="mt-4 flex justify-center space-x-6">
-                <!-- Replace # with your social media links -->
-                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+        </div>
+    </footer>
 
-                    
-
-
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
