@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Column Blog Grid Layout</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for the modal content */
+        .modal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-body::-webkit-scrollbar-thumb {
+            background-color: #d1d5db; /* gray-300 */
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-4 sm:p-8">
+
+    <header class="text-center mb-10">
+        <h1 class="text-4xl font-extrabold text-gray-800">Latest Stories Grid</h1>
+        <p class="text-gray-500 mt-2">A fully responsive grid showcasing multiple blog posts.</p>
+    </header>
+
+    <!--
+        LAYOUT CONTAINER - NOW USING GRID
+        - grid: Initializes a CSS Grid.
+        - grid-cols-1: Default (mobile) is 1 column.
+        - md:grid-cols-2: Medium screens (tablet) switch to 2 columns.
+        - xl:grid-cols-3: Extra-large screens (desktop) switch to 3 columns.
+        - gap-8: Adds space between all the grid items.
+    -->
+    <main class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 max-w-7xl mx-auto gap-8">
+
+        <!-- Blog Card 1: Ultimate Beginner's Guide to Investing (Replaced Content) -->
+        <div id="blog-card-1" class="blog-card p-6 bg-white shadow-xl rounded-xl transition duration-300 hover:shadow-2xl border border-gray-100">
+            <!-- Placeholder Image/Visual: Changed to reflect a finance theme (yellow/orange) -->
+            <div class="h-48 bg-yellow-100 rounded-lg mb-4 flex items-center justify-center">
+                <span class="text-yellow-600 font-bold text-xl">Blog Visual 1: Investing</span>
+            </div>
+
+            <span class="text-sm font-semibold text-orange-600 uppercase tracking-wider">Finance 101</span>
+            <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3 leading-snug">
+                The Ultimate Beginner's Guide to Investing
+            </h2>
+            <p id="content-1" class="text-gray-600 mb-4">
+                Learn the core principles of wealth building, from establishing an emergency fund to mastering the power of dollar-cost averaging (DCA)...
+            </p>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span class="font-medium">By A Beginner Investor</span>
+                <span>Oct 18, 2025</span>
+            </div>
+            <button onclick="openArticleModal(1)" class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg font-semibold hover:bg-orange-700 transition duration-150">
+                Read Article
+            </button>
+            
+            <!-- Gemini Feature 1: Summarize Content -->
+            <div class="mt-6 pt-4 border-t border-gray-200">
+                <button id="summarize-btn" onclick="summarizeBlog(1)" class="w-full bg-purple-500 text-white py-2 rounded-lg font-semibold hover:bg-purple-600 transition duration-150 flex items-center justify-center">
+                    Summarize Content ✨
+                </button>
+                <p id="summary-output-1" class="mt-3 text-sm italic text-purple-700 min-h-[1.5rem]"></p>
+            </div>
+        </div>
+
+        <!-- Blog Card 2: Digital Minimalism (with Headline Feature) -->
+        <div id="blog-card-2" class="blog-card p-6 bg-white shadow-xl rounded-xl transition duration-300 hover:shadow-2xl border border-gray-100">
+            <!-- Placeholder Image/Visual -->
+            <div class="h-48 bg-green-100 rounded-lg mb-4 flex items-center justify-center">
+                <span class="text-green-600 font-bold text-xl">Blog Visual 2</span>
+            </div>
+
+            <span class="text-sm font-semibold text-teal-600 uppercase tracking-wider">Lifestyle</span>
+            <h2 id="headline-2-original" class="text-2xl font-bold text-gray-900 mt-2 mb-3 leading-snug">
+                Mastering the Art of Digital Minimalism
+            </h2>
+            <p id="content-2" class="text-gray-600 mb-4">
+                Learn practical tips for decluttering your digital life, reducing screen time, and finding balance in an increasingly connected world...
+            </p>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span class="font-medium">By John Smith</span>
+                <span>Oct 16, 2025</span>
+            </div>
+            <button onclick="openArticleModal(2)" class="mt-4 w-full bg-teal-600 text-white py-2 rounded-lg font-semibold hover:bg-teal-700 transition duration-150">
+                Read Article
+            </button>
+            
+            <!-- Gemini Feature 2: Generate New Headline -->
+            <div class="mt-6 pt-4 border-t border-gray-200">
+                <button id="headline-btn" onclick="generateNewHeadline(2)" class="w-full bg-pink-500 text-white py-2 rounded-lg font-semibold hover:bg-pink-600 transition duration-150 flex items-center justify-center">
+                    Generate Clickbait Headline ✨
+                </button>
+                <div class="mt-3">
+                    <p class="text-xs text-gray-500 mb-1">New Headline Suggestion:</p>
+                    <h3 id="headline-output-2" class="text-lg font-extrabold text-pink-700 min-h-[1.5rem]"></h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Card 3: Finance -->
+        <div id="blog-card-3" class="blog-card p-6 bg-white shadow-xl rounded-xl transition duration-300 hover:shadow-2xl border border-gray-100">
+            <!-- Placeholder Image/Visual -->
+            <div class="h-48 bg-yellow-100 rounded-lg mb-4 flex items-center justify-center">
+                <span class="text-yellow-600 font-bold text-xl">Blog Visual 3</span>
+            </div>
+
+            <span class="text-sm font-semibold text-orange-600 uppercase tracking-wider">Finance</span>
+            <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3 leading-snug">
+                Understanding Compound Interest Early
+            </h2>
+            <p id="content-3" class="text-gray-600 mb-4">
+                This essential guide breaks down how compound interest works and provides practical strategies for young investors to maximize their returns over time...
+            </p>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span class="font-medium">By Ali Khan</span>
+                <span>Oct 17, 2025</span>
+            </div>
+            <button onclick="openArticleModal(3)" class="mt-4 w-full bg-orange-600 text-white py-2 rounded-lg font-semibold hover:bg-orange-700 transition duration-150">
+                Read Article
+            </button>
+        </div>
+
+        <!-- Blog Card 4: Cooking -->
+        <div id="blog-card-4" class="blog-card p-6 bg-white shadow-xl rounded-xl transition duration-300 hover:shadow-2xl border border-gray-100">
+            <!-- Placeholder Image/Visual -->
+            <div class="h-48 bg-red-100 rounded-lg mb-4 flex items-center justify-center">
+                <span class="text-red-600 font-bold text-xl">Blog Visual 4</span>
+            </div>
+
+            <span class="text-sm font-semibold text-red-600 uppercase tracking-wider">Food & Drink</span>
+            <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3 leading-snug">
+                Five Classic Dishes Every Home Cook Needs
+            </h2>
+            <p id="content-4" class="text-gray-600 mb-4">
+                We present a curated list of foundational recipes—from French omelets to perfect pasta—that every aspiring home chef should master to elevate their culinary skills...
+            </p>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span class="font-medium">By Chef Remy</span>
+                <span>Oct 18, 2025</span>
+            </div>
+            <button onclick="openArticleModal(4)" class="mt-4 w-full bg-red-600 text-white py-2 rounded-lg font-semibold hover:bg-red-700 transition duration-150">
+                Read Article
+            </button>
+        </div>
+        
+        <!-- Blog Card 5: Travel -->
+        <div id="blog-card-5" class="blog-card p-6 bg-white shadow-xl rounded-xl transition duration-300 hover:shadow-2xl border border-gray-100">
+            <!-- Placeholder Image/Visual -->
+            <div class="h-48 bg-cyan-100 rounded-lg mb-4 flex items-center justify-center">
+                <span class="text-cyan-600 font-bold text-xl">Blog Visual 5</span>
+            </div>
+
+            <span class="text-sm font-semibold text-cyan-600 uppercase tracking-wider">Travel</span>
+            <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-3 leading-snug">
+                Exploring South East Asia on a Budget
+            </h2>
+            <p id="content-5" class="text-gray-600 mb-4">
+                Discover the best tips and tricks for maximizing your travel budget, finding affordable accommodation, and experiencing local culture across five different Southeast Asian countries...
+            </p>
+            <div class="flex justify-between items-center text-sm text-gray-500">
+                <span class="font-medium">By Marco Polo</span>
+                <span>Oct 19, 2025</span>
+            </div>
+            <button onclick="openArticleModal(5)" class="mt-4 w-full bg-cyan-600 text-white py-2 rounded-lg font-semibold hover:bg-cyan-700 transition duration-150">
+                Read Article
+            </button>
+        </div>
+    </main>
+    
+    <!-- Full Article Modal Overlay -->
+    <div id="article-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-gray-900 bg-opacity-75 flex items-center justify-center p-4">
+        <!-- Modal Content Container -->
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden transform transition-all">
+            <!-- Header and Close Button -->
+            <div class="p-6 border-b border-gray-200 flex justify-between items-center sticky top-0 bg-white z-10">
+                <h3 id="modal-category" class="text-sm font-bold uppercase tracking-wider text-gray-500"></h3>
+                <button onclick="closeArticleModal()" class="text-gray-400 hover:text-gray-600 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Article Scrollable Body -->
+            <div class="p-6 sm:p-8 modal-body overflow-y-auto max-h-[calc(90vh-80px)]">
+                <h1 id="modal-title" class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 leading-tight"></h1>
+                <p id="modal-meta" class="text-sm text-gray-500 mb-6 border-b pb-4"></p>
+                <div id="modal-body-content" class="text-gray-700 space-y-6 text-base leading-relaxed whitespace-pre-wrap">
+                    <!-- Full article text will be injected here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script type="module">
+        // Global environment variables (MANDATORY)
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // Base URL for the Gemini API
+        const API_BASE_URL = 'https://generativelanguage.googleapis.com/v1beta/models/';
+        const MODEL_NAME = 'gemini-2.5-flash-preview-09-2025';
+        const API_KEY = ""; // Placeholder for the system to inject the key
+
+        // --- Full Article Data ---
+        // This object holds the full content for the modal display
+        const fullArticles = {
+            '1': {
+                title: "The Ultimate Beginner's Guide to Investing",
+                category: "Finance 101",
+                author: "A Beginner Investor",
+                date: "Oct 18, 2025",
+                body: `Investing might seem complex, but at its core, it's simply putting your money to work so it can grow over time. The single most important rule is to start early. Thanks to the magic of compounding—where your earnings start earning their own earnings—time is your greatest asset. This guide breaks down the essential first steps every new investor needs to take to build a solid financial foundation and begin growing wealth, even with a small budget.
+
+## 1. Build Your Foundation
+Before jumping into the market, you need a financial safety net. This is often the step people overlook, but it's crucial for long-term investing discipline. If an emergency hits, you don't want to be forced to sell your investments at a loss.
+
+- **Pay Down High-Interest Debt:** Tackle credit card debt or personal loans first. The interest rate on this debt is likely higher than any return you'll earn by investing, making debt repayment your best "investment."
+- **Create an Emergency Fund:** Set aside 3 to 6 months' worth of living expenses in a high-yield savings account or a low-risk, easily accessible account.
+
+## 2. Define Your Goals and Timeline
+What are you saving for? Your goals determine how much risk you should take and which investment vehicles are appropriate.
+
+- **Goal: Retirement (Long-Term):** If your goal is 10+ years away, you have time to ride out market volatility. You can afford to take higher risk (more stocks/equity) for potentially higher growth.
+- **Goal: House Down Payment (Short-Term):** If your goal is less than 5 years away, market drops pose a greater threat. You should take a lower risk approach (more bonds/cash equivalents) to preserve capital.
+
+## 3. Pick the Right Account
+The type of account you open dictates the tax benefits you receive. Always prioritize tax-advantaged accounts first.
+
+- **Retirement Accounts (401(k), IRA):** These are usually the best starting point due to significant tax advantages and potential employer matching (free money!).
+- **Brokerage Accounts:** A standard, taxable investment account. Use this after you've maximized your retirement accounts, or for non-retirement goals like saving for a house or car.
+
+## 4. Your First Investment Choices
+For beginners, simplicity and diversification are key. You do not need to research individual stocks!
+
+- **Index Funds / ETFs:** These funds hold a basket of hundreds of stocks (like the S&P 500). They offer instant diversification, low fees, and typically outperform actively managed funds over the long term. This is the best choice for most beginners.
+- **Fractional Shares & Micro-Investing:** If you're starting with very little money ($5 or $10), fractional shares allow you to buy parts of expensive stocks or ETFs. Many brokerages and micro-investing apps offer this feature, removing the barrier of entry.
+- **Bonds & Debt Funds:** Bonds represent loans you make to a government or company. They are lower risk than stocks and are typically used to balance a portfolio as you get closer to your financial goal.
+
+## 5. Adopt a Simple Strategy: DCA
+The simplest and most effective strategy for beginners is **Dollar-Cost Averaging (DCA)**. This is a disciplined approach that eliminates the stress of "timing the market."
+
+- **How DCA Works:** Instead of investing a lump sum once, you invest a fixed amount of money at regular intervals (e.g., $100 every month), regardless of whether the market is up or down. This smooths out volatility and removes the stress of "timing the market."
+
+The most important part of investing is getting started. Choose one retirement account, pick one low-cost index ETF, set up an automatic monthly transfer, and you're officially an investor!`,
+                color: 'orange'
+            },
+            '2': {
+                title: "Mastering the Art of Digital Minimalism",
+                category: "Lifestyle",
+                author: "John Smith",
+                date: "Oct 16, 2025",
+                body: `Learn practical tips for decluttering your digital life, reducing screen time, and finding balance in an increasingly connected world. This approach advocates for only using technology that serves a deeply felt purpose, thereby eliminating distraction and improving focus and well-being. The article details a 30-day "digital declutter" challenge.
+        
+The core principle of digital minimalism, as coined by Cal Newport, is to focus your attention on a few, high-value digital activities, and happily miss out on everything else. This is not about completely abandoning technology; it's about intentional usage.
+        
+We start with a complete inventory of your digital tools: social media, streaming services, and mobile apps. Next, we challenge you to try a 30-day detox, removing all non-essential tech. At the end of the challenge, you slowly reintroduce only the technologies that genuinely improve your life, leaving the rest behind. The result is a profound sense of control, reduced anxiety, and a significant increase in free, focused time.`,
+                color: 'teal'
+            },
+            '3': {
+                title: "Understanding Compound Interest Early",
+                category: "Finance",
+                author: "Ali Khan",
+                date: "Oct 17, 2025",
+                body: `This essential guide breaks down how compound interest works and provides practical strategies for young investors to maximize their returns over time. Understanding the exponential growth curve is key to long-term wealth.
+        
+Compound interest is often called the 'eighth wonder of the world.' It is interest on interest—your earnings grow over time, and then those earnings start earning interest themselves. The earlier you start investing, the more time compounding has to work its magic.
+        
+We cover practical investment vehicles, including low-cost index funds and high-yield savings accounts. The guide emphasizes the importance of consistency, no matter how small the initial contribution. By automating small investments early in your career, you can harness the full power of compounding and build a robust financial future without relying on large, lump-sum investments later in life.`,
+                color: 'orange'
+            },
+            '4': {
+                title: "Five Classic Dishes Every Home Cook Needs",
+                category: "Food & Drink",
+                author: "Chef Remy",
+                date: "Oct 18, 2025",
+                body: `We present a curated list of foundational recipes—from French omelets to perfect pasta—that every aspiring home chef should master to elevate their culinary skills. Mastering these classics provides a versatile toolkit for almost any meal.
+        
+The five essential dishes include:
+        
+1. **The Classic French Omelet:** A test of speed and finesse, mastering this ensures you can handle heat control and ingredient balance.
+2. **Simple Tomato Sauce (Marinara):** The base for countless Italian dishes; quality ingredients and slow simmering are key.
+3. **Roast Chicken:** A simple yet impressive centerpiece that teaches seasoning and temperature management.
+4. **Perfect Rice:** Whether steamed or pilaf, fluffy, separate grains are the foundation of many global cuisines.
+5. **Basic Vinaigrette:** Learning the ratio of oil to acid allows you to create endless variations of salad dressing.
+        
+Practice these five recipes religiously, and you'll find your confidence and versatility in the kitchen soar.`,
+                color: 'red'
+            },
+            '5': {
+                title: "Exploring South East Asia on a Budget",
+                category: "Travel",
+                author: "Marco Polo",
+                date: "Oct 19, 2025",
+                body: `Discover the best tips and tricks for maximizing your travel budget, finding affordable accommodation, and experiencing local culture across five different Southeast Asian countries. Travel doesn't have to break the bank.
+        
+Southeast Asia remains one of the most budget-friendly regions for backpackers and long-term travelers. We detail strategies for securing cheap flights, often involving indirect routes or budget carriers. Accommodation savings are maximized by using local guesthouses rather than large international hotels.
+        
+Food is another key area for savings: always eat local street food, which is often safer and far cheaper than tourist restaurants. We provide specific budget breakdowns for Thailand, Vietnam, Indonesia, Cambodia, and the Philippines, showing how a traveler can comfortably exist on less than $40 a day. Embrace public transport, haggle respectfully in markets, and prioritize experiences over expensive souvenirs.`,
+                color: 'cyan'
+            },
+        };
+
+        // --- Modal Control Functions ---
+
+        /**
+         * Opens the modal and displays the full article content.
+         * @param {number} id - The ID of the article to display (1 to 5).
+         */
+        window.openArticleModal = function(id) {
+            const article = fullArticles[id.toString()];
+            if (!article) {
+                console.error(`Article with ID ${id} not found.`);
+                return;
+            }
+
+            const modal = document.getElementById('article-modal');
+            
+            document.getElementById('modal-title').textContent = article.title;
+            document.getElementById('modal-category').textContent = article.category;
+            document.getElementById('modal-meta').innerHTML = `By <span class="font-medium text-gray-700">${article.author}</span> on ${article.date}`;
+            document.getElementById('modal-body-content').textContent = article.body;
+            
+            // Show the modal
+            modal.classList.remove('hidden');
+        }
+
+        /**
+         * Hides the modal.
+         */
+        window.closeArticleModal = function() {
+            const modal = document.getElementById('article-modal');
+            modal.classList.add('hidden');
+        }
+
+
+        // --- Utility function for exponential backoff (Retained from previous version) ---
+        async function fetchWithBackoff(url, options, maxRetries = 5) {
+            for (let i = 0; i < maxRetries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.status !== 429) {
+                        return response;
+                    }
+                    console.warn(`Rate limit hit. Retrying in ${Math.pow(2, i)} seconds...`);
+                } catch (error) {
+                    console.error("Fetch attempt failed:", error);
+                    if (i === maxRetries - 1) throw error;
+                }
+                await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000));
+            }
+            throw new Error('API request failed after multiple retries.');
+        }
+
+        /**
+         * Calls the Gemini API to generate content. (Retained from previous version)
+         * @param {string} userQuery - The main query to the model.
+         * @param {string} systemInstruction - The system prompt to guide the model's behavior.
+         * @returns {Promise<string>} The generated text.
+         */
+        async function callGeminiApi(userQuery, systemInstruction) {
+            const apiUrl = `${API_BASE_URL}${MODEL_NAME}:generateContent?key=${API_KEY}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] },
+            };
+
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            };
+
+            try {
+                const response = await fetchWithBackoff(apiUrl, options);
+                const result = await response.json();
+
+                if (response.ok && result.candidates?.[0]?.content?.parts?.[0]?.text) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    const errorMsg = result.error?.message || 'Unknown API error occurred.';
+                    throw new Error(`Gemini API Error: ${errorMsg}`);
+                }
+            } catch (e) {
+                console.error("Error calling Gemini API:", e);
+                return `[Error: Failed to generate content. ${e.message}]`;
+            }
+        }
+
+        // --- Gemini Features (Updated to use fullArticles data for content) ---
+
+        window.summarizeBlog = async function(blogId) {
+            const contentElement = fullArticles[blogId.toString()];
+            const outputElement = document.getElementById(`summary-output-${blogId}`);
+            const button = document.getElementById('summarize-btn');
+            const originalContent = contentElement ? contentElement.body.trim() : ''; // Use full body content
+
+            if (!originalContent) {
+                outputElement.textContent = 'No content found to summarize.';
+                return;
+            }
+
+            button.disabled = true;
+            button.innerHTML = 'Summarizing...';
+            outputElement.textContent = 'Generating summary...';
+
+            // System instruction and query are the same, but now uses the long article content.
+            const userQuery = `Summarize the following blog content in a single, concise paragraph: \n\nCONTENT: "${originalContent}"`;
+            const systemInstruction = "You are a helpful content editor. Your task is to extract the main points of a given text and summarize it professionally for a quick reader.";
+
+            const summary = await callGeminiApi(userQuery, systemInstruction);
+            
+            outputElement.textContent = summary;
+            button.innerHTML = 'Summarize Content ✨';
+            button.disabled = false;
+        }
+
+        window.generateNewHeadline = async function(blogId) {
+            const contentElement = fullArticles[blogId.toString()];
+            const outputElement = document.getElementById(`headline-output-${blogId}`);
+            const button = document.getElementById('headline-btn');
+            const originalContent = contentElement ? contentElement.body.trim() : ''; // Use full body content
+
+            if (!originalContent) {
+                outputElement.textContent = 'No content found to generate a headline for.';
+                return;
+            }
+
+            button.disabled = true;
+            button.innerHTML = 'Generating...';
+            outputElement.textContent = 'Thinking of a catchy title...';
+
+            // System instruction and query are the same, but now uses the long article content.
+            const userQuery = `Based on the following blog content, write one extremely catchy, clickbait-style headline that would encourage someone to click on the article. The headline MUST be short and engaging. \n\nCONTENT: "${originalContent}"`;
+            const systemInstruction = "You are a professional social media marketer. Generate a single, highly engaging, short, clickbait headline based on the provided content. Do not include any explanations or quotes.";
+
+            const headline = await callGeminiApi(userQuery, systemInstruction);
+            
+            outputElement.textContent = headline.trim().replace(/^['"]|['"]$/g, '');
+            button.innerHTML = 'Generate Clickbait Headline ✨';
+            button.disabled = false;
+        }
+
+        // --- Firebase/Auth Initialization (MANDATORY STRUCTURE) ---
+        // This block is left empty as no Firestore/Auth features are implemented for this task.
+    </script>
+
+</body>
+</html>

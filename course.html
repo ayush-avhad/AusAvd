@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures & Algorithms in Python Course</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Ensuring the body uses the 'Inter' font for a modern look */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-100">
+
+    <div class="max-w-6xl mx-auto p-4 md:p-10">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-10">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-green-400 mb-2">
+                Data Structures and Algorithms in Python
+            </h1>
+            <p class="text-xl text-gray-400">
+                Full Course for Beginners | Taught by Akash NS of Jovian
+            </p>
+        </header>
+
+        <!-- Video and Call-to-Action Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            
+            <!-- Video Player (Left/Top) -->
+            <div class="lg:col-span-2 rounded-xl overflow-hidden shadow-2xl">
+                <!-- Responsive YouTube Embed -->
+                <div class="relative pt-[56.25%]"> <!-- 16:9 Aspect Ratio -->
+                    <iframe 
+                        class="absolute top-0 left-0 w-full h-full"
+                        src="https://www.youtube.com/embed/pkYVOmU3MgA" 
+                        title="Data Structures and Algorithms in Python - Full Course for Beginners" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Course Summary and CTA (Right/Bottom) -->
+            <div class="lg:col-span-1 bg-gray-800 p-6 rounded-xl shadow-xl flex flex-col justify-between">
+                <div>
+                    <h2 class="text-2xl font-bold text-white mb-3">Master Core Coding Skills</h2>
+                    <p class="text-gray-400 mb-6">
+                        This beginner-friendly, coding-focused course is designed to sharpen your programming skills, help you conquer technical interviews, and build real-world projects you can showcase.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <p class="flex items-center text-sm font-semibold text-green-400">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            6-Week Structured Learning
+                        </p>
+                        <p class="flex items-center text-sm font-semibold text-green-400">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            Hands-On Jupyter Notebooks
+                        </p>
+                        <p class="flex items-center text-sm font-semibold text-green-400">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-2.485 0-4.5 2.015-4.5 4.5S9.515 17 12 17s4.5-2.015 4.5-4.5S14.485 8 12 8z"></path></svg>
+                            Interview-Ready Problem Solving
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <a href="https://pythondsa.org/" target="_blank" class="block mt-6">
+                    <button class="w-full bg-green-500 hover:bg-green-600 text-gray-900 font-extrabold py-3 rounded-lg transition duration-300 shadow-lg transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-70">
+                        Enroll and Get Verified Certificate
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <!-- Course Highlights/Modules Section -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6 border-b border-gray-700 pb-2">What You Will Learn</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Card 1: Complexity -->
+                <div class="bg-gray-800 p-5 rounded-lg shadow-xl border-t-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold mb-2 text-yellow-500">Algorithm Analysis</h3>
+                    <p class="text-gray-400 text-sm">Understand time and space complexity (Big O notation) for efficient code design.</p>
+                </div>
+                
+                <!-- Card 2: Searching -->
+                <div class="bg-gray-800 p-5 rounded-lg shadow-xl border-t-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold mb-2 text-yellow-500">Searching Techniques</h3>
+                    <p class="text-gray-400 text-sm">Implement powerful searching algorithms like Linear Search and Binary Search.</p>
+                </div>
+
+                <!-- Card 3: Data Structures -->
+                <div class="bg-gray-800 p-5 rounded-lg shadow-xl border-t-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold mb-2 text-yellow-500">Fundamental Structures</h3>
+                    <p class="text-gray-400 text-sm">Master Linked Lists, Graphs, and Trees for organizing complex data.</p>
+                </div>
+                
+                <!-- Card 4: Interview Prep -->
+                <div class="bg-gray-800 p-5 rounded-lg shadow-xl border-t-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold mb-2 text-yellow-500">Practical Application</h3>
+                    <p class="text-gray-400 text-sm">Solve interview questions and handle critical Edge Cases and Brute Force methods.</p>
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Course Dashboard</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Changed to a dark background color */
+            background-color: #0d1117; 
+        }
+        /* Style for the YouTube video container to maintain aspect ratio (16:9) */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+        <!-- Header: Changed background and text colors for dark theme -->
+        <header class="text-center py-8 mb-6 bg-gray-800 rounded-xl shadow-lg">
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-white tracking-tight">
+                Curated YouTube Courses
+            </h1>
+            <p class="mt-2 text-lg text-gray-400">
+                Explore high-quality, free educational content from top creators.
+            </p>
+        </header>
+
+        <!-- Search and Filter Section: Changed background and input styles for dark theme -->
+        <section class="mb-8 p-4 bg-gray-800 rounded-xl shadow-lg sticky top-0 z-10">
+            <div class="flex flex-col sm:flex-row gap-4 items-center">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search by title or description (e.g., Python, Design)..."
+                    oninput="filterCourses()"
+                    class="w-full sm:flex-grow p-3 border-2 border-gray-700 bg-gray-700 text-white rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 shadow-inner placeholder:text-gray-400"
+                >
+                <select id="category-filter" onchange="filterCourses()" class="w-full sm:w-1/4 p-3 border-2 border-gray-700 bg-gray-700 text-white rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-150 shadow-inner">
+                    <option value="All">All Categories</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Design">Design</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Science">Science</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Course Grid -->
+        <main id="courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Course cards will be injected here by JavaScript -->
+        </main>
+        
+        <p id="no-results" class="text-center text-xl text-gray-400 mt-12 hidden">
+            No courses match your search criteria. Try a different query!
+        </p>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 bg-gray-900 bg-opacity-80 hidden items-center justify-center p-4 z-50 transition duration-300 ease-in-out" onclick="closeModal()">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-4xl overflow-hidden" onclick="event.stopPropagation()">
+            <div class="p-4 sm:p-6">
+                <!-- Modal Header -->
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h2 id="modal-title" class="text-2xl font-bold text-gray-900"></h2>
+                        <p id="modal-creator" class="text-sm text-gray-500 mt-1"></p>
+                    </div>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- YouTube Video Player -->
+                <div class="video-container rounded-lg shadow-xl overflow-hidden mb-4">
+                    <!-- Iframe will be inserted here -->
+                </div>
+
+                <!-- Modal Description -->
+                <p id="modal-description" class="text-gray-700 mt-4"></p>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Course Data ---
+        // This is the static dataset of YouTube courses
+        const courses = [
+            { id: 1, title: "Full Python Course for Beginners", description: "Learn Python from scratch in a 12-hour video. Covers basics, data structures, OOP, and mini-projects.", creator: "Dev Channel Pro", category: "Programming", videoId: "rfscVS0vtbw" },
+            { id: 2, title: "Adobe Illustrator Masterclass", description: "A complete guide to vector graphics. Perfect for logo design, illustrations, and digital art basics.", creator: "Vector Vista", category: "Design", videoId: "T8L913lC_d8" },
+            { id: 3, title: "The Complete Guide to Personal Finance", description: "Budgeting, saving, investing basics, and debt management. Get your finances in order today.", creator: "Money Mindset", category: "Finance", videoId: "7k2h66Z1j_Y" },
+            { id: 4, title: "Web Development Full Course (HTML, CSS, JavaScript)", description: "The definitive 40-hour course to become a front-end developer. Includes responsive design and frameworks.", creator: "Code Explorer", category: "Programming", videoId: "nu_pCVPKzUo" },
+            { id: 5, title: "Introduction to Calculus", description: "A college-level lecture series covering limits, derivatives, and integrals in a clear, intuitive way.", creator: "Math Simplified", category: "Science", videoId: "WUvTyaaNkzM" },
+            { id: 6, title: "UI/UX Design Fundamentals", description: "Learn how to create user-friendly interfaces, focusing on wireframing, prototyping, and user research.", creator: "Design Sense", category: "Design", videoId: "i-pQdtjVf4s" },
+            { id: 7, title: "Investing for Beginners: Stocks and ETFs", description: "A simple breakdown of how the stock market works, how to choose index funds, and long-term strategy.", creator: "Wealth Builder", category: "Finance", videoId: "0bL39wz6R1Y" },
+            { id: 8, title: "Linear Algebra Explained Visually", description: "Intuitive explanations of vectors, matrices, and transformations essential for machine learning and data science.", creator: "Deep Thinker", category: "Science", videoId: "fNk_zzaMoSs" },
+            { id: 9, title: "React JS Crash Course 2024", description: "Build modern, component-based applications with React hooks, state management, and routing.", creator: "Front-End Focus", category: "Programming", videoId: "bMknfKXIFA8" },
+            
+            // --- NEW COURSES ADDED BELOW ---
+            { id: 10, title: "C Programming Full Course", description: "Learn the fundamentals of C programming from scratch. Covers pointers, memory management, and file I/O for system development.", creator: "C Master", category: "Programming", videoId: "KJgsgmOGVVs" },
+            { id: 11, title: "Data Structures & Algorithms with Java", description: "A comprehensive bootcamp on essential DSA concepts (linked lists, trees, graphs) using the Java language. Ideal for interview preparation.", creator: "Algo Expert", category: "Programming", videoId: "nBJUJ77F6rU" },
+            { id: 12, title: "Advanced JavaScript Concepts", description: "Deep dive into closures, prototypes, asynchronous JavaScript (Promises/Async-Await), and modern ES6+ features.", creator: "JS Guru", category: "Programming", videoId: "W6NZfC5d8jw" },
+            { id: 13, title: "C++ Beginner to Advanced Tutorial", description: "Learn modern C++ (C++11/14/17) including STL, templates, and Object-Oriented Programming principles.", creator: "CPP Pro", category: "Programming", videoId: "vLnPwxZdW4Y" }
+            // --- NEW COURSES END ---
+        ];
+
+        const coursesGrid = document.getElementById('courses-grid');
+        const modal = document.getElementById('video-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalCreator = document.getElementById('modal-creator');
+        const modalDescription = document.getElementById('modal-description');
+        const noResultsMessage = document.getElementById('no-results');
+
+        // --- Core Rendering Function ---
+
+        /**
+         * Renders the course cards based on the filtered list.
+         * @param {Array<Object>} filteredCourses - The list of courses to display.
+         */
+        function renderCourses(filteredCourses) {
+            coursesGrid.innerHTML = ''; // Clear the current grid
+
+            if (filteredCourses.length === 0) {
+                noResultsMessage.classList.remove('hidden');
+                return;
+            } else {
+                noResultsMessage.classList.add('hidden');
+            }
+
+            filteredCourses.forEach(course => {
+                const card = document.createElement('div');
+                // Cards remain white for contrast against the dark background
+                card.className = 'bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden cursor-pointer border border-gray-700 transform hover:scale-[1.02]';
+                card.setAttribute('onclick', `openModal(${course.id})`);
+                
+                // Determine a color for the category tag
+                let categoryColor = 'bg-indigo-500';
+                if (course.category === 'Programming') categoryColor = 'bg-blue-500';
+                else if (course.category === 'Design') categoryColor = 'bg-green-500';
+                else if (course.category === 'Finance') categoryColor = 'bg-yellow-500';
+                else if (course.category === 'Science') categoryColor = 'bg-red-500';
+
+                // Thumbnail Placeholder
+                const thumbnailUrl = `https://i.ytimg.com/vi/${course.videoId}/hqdefault.jpg`;
+
+                card.innerHTML = `
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="${thumbnailUrl}" onerror="this.onerror=null;this.src='https://placehold.co/720x405/1f2937/d1d5db?text=Video+Thumbnail';" alt="Course Thumbnail" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <svg class="w-16 h-16 text-white opacity-80" fill="currentColor" viewBox="0 0 24 24"><path d="M6 4l15 8-15 8V4z"/></svg>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block text-xs font-semibold uppercase tracking-wider text-white px-3 py-1 rounded-full ${categoryColor} mb-3">
+                            ${course.category}
+                        </span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2 leading-snug">
+                            ${course.title}
+                        </h3>
+                        <p class="text-gray-600 text-sm line-clamp-3">
+                            ${course.description}
+                        </p>
+                        <div class="mt-4 pt-4 border-t border-gray-100 flex justify-between items-center text-xs text-gray-500">
+                            <span class="font-medium text-blue-600">By ${course.creator}</span>
+                            <span>Click to Watch</span>
+                        </div>
+                    </div>
+                `;
+                coursesGrid.appendChild(card);
+            });
+        }
+
+        // --- Filtering Logic ---
+
+        /**
+         * Filters the courses based on search input and category selection.
+         */
+        window.filterCourses = function() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const categoryFilter = document.getElementById('category-filter').value;
+
+            const filtered = courses.filter(course => {
+                const matchesSearch = course.title.toLowerCase().includes(searchInput) ||
+                                      course.description.toLowerCase().includes(searchInput);
+                
+                const matchesCategory = categoryFilter === 'All' || course.category === categoryFilter;
+
+                return matchesSearch && matchesCategory;
+            });
+
+            renderCourses(filtered);
+        }
+
+        // --- Modal Functions ---
+
+        /**
+         * Opens the video modal and embeds the correct YouTube video.
+         * @param {number} id - The ID of the course to open.
+         */
+        window.openModal = function(id) {
+            const course = courses.find(c => c.id === id);
+            if (!course) return;
+
+            // Set modal content
+            modalTitle.textContent = course.title;
+            modalCreator.textContent = `By ${course.creator}`;
+            modalDescription.textContent = course.description;
+
+            // Create and embed the YouTube iframe
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', `https://www.youtube.com/embed/${course.videoId}?autoplay=1`);
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+            iframe.setAttribute('allowfullscreen', '');
+
+            const videoContainer = modal.querySelector('.video-container');
+            videoContainer.innerHTML = ''; // Clear previous video
+            videoContainer.appendChild(iframe);
+            
+            // Show the modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        /**
+         * Closes the video modal and stops the video playback.
+         */
+        window.closeModal = function() {
+            // Remove the iframe content to stop playback
+            const videoContainer = modal.querySelector('.video-container');
+            videoContainer.innerHTML = ''; 
+
+            // Hide the modal
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+        
+        // Initial render when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCourses(courses);
+        });
+
+    </script>
+
+</body>
+</html>
+
+
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm pt-6 border-t border-gray-800">
+            Course content provided by freeCodeCamp.org in collaboration with Jovian.
+        </footer>
+
+    </div>
+
+</body>
+</html>

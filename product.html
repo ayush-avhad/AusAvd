@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Products Showcase</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use Inter font and define custom colors if needed -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-bg': '#0f172a', // Slate-900 equivalent for background
+                        'card-dark': '#1e293b', // Slate-800 equivalent for the card
+                        'primary-blue': '#3b82f6', // Blue-500
+                        'text-light': '#f8fafc', // White/Light Text
+                        'text-muted': '#94a3b8', // Slate-400
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Ensures smooth transitions for interactive elements */
+        .transition-all {
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+    </style>
+</head>
+<body class="bg-dark-bg min-h-screen p-4 sm:p-8 font-sans text-text-light">
+
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Header Section (Matching the uploaded image) -->
+        <header class="bg-card-dark p-6 sm:p-8 rounded-xl shadow-2xl mb-12 border border-slate-700/50">
+            <h1 class="text-4xl sm:text-5xl font-extrabold mb-3 tracking-tight text-text-light">
+                Digital Products
+            </h1>
+            <p class="text-lg text-text-muted max-w-2xl">
+                Browse my collection of digital products, including e-books, templates, and toolkits designed to help you achieve your goals faster.
+            </p>
+        </header>
+
+        <!-- Product Listing Section -->
+        <section>
+            <h2 class="text-3xl font-bold mb-6 text-text-light">Featured Tools</h2>
+            <!-- Dynamic product cards will be inserted here by JavaScript -->
+            <div id="product-list-container" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <!-- Loading Indicator -->
+                <div id="loading-indicator" class="col-span-full text-center py-10">
+                    <p class="text-primary-blue font-medium">Loading products...</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Interactive Footer Element -->
+        <footer class="mt-16 text-center text-text-muted text-sm border-t border-slate-700/50 pt-8">
+            <p id="total-products-info">Initializing...</p>
+            <p class="mt-2">© 2025 Creative Digital Assets</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // Data for the digital products
+        const products = [
+            { id: 1, name: "Ultimate Productivity Toolkit", price: 49, description: "All the templates, checklists, and guides you need to master your day and maximize efficiency.", icon: "📚" },
+            { id: 2, name: "Modern Portfolio Template", price: 29, description: "A sleek, responsive HTML/Tailwind template for creative professionals to showcase their work.", icon: "💻" },
+            { id: 3, name: "Email Marketing E-book", price: 19, description: "Learn how to build, grow, and monetize your email list with proven, actionable strategies.", icon: "✉️" },
+            { id: 4, name: "30-Day Fitness Planner", price: 15, description: "A complete downloadable PDF planner and tracker to kickstart your fitness journey.", icon: "🏋️" },
+            { id: 5, name: "Freelancer Contract Kit", price: 39, description: "Essential legal templates (editable docs) to protect your business and clients.", icon: "📄" },
+            { id: 6, name: "Social Media Content Calendar", price: 25, description: "A structured spreadsheet to plan and schedule your entire month's worth of content.", icon: "📅" },
+        ];
+
+        // Function to create the HTML string for a single product card
+        function createProductCard(product) {
+            return `
+                <div class="product-card bg-card-dark p-6 rounded-xl shadow-lg border border-slate-700/50 hover:shadow-primary-blue/30 transition-all transform hover:-translate-y-1">
+                    <div class="text-4xl mb-4">${product.icon}</div>
+                    <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
+                    <p class="text-text-muted mb-4 text-sm">${product.description}</p>
+                    <div class="flex justify-between items-center mt-auto">
+                        <span class="text-2xl font-bold text-primary-blue">$${product.price}</span>
+                        <button 
+                            onclick="handlePurchaseClick(${product.id}, '${product.name}')"
+                            class="transition-all bg-primary-blue text-white px-4 py-2 rounded-lg font-medium shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:ring-opacity-50">
+                            Get Now
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Main function to load and render products
+        function loadProducts() {
+            const container = document.getElementById('product-list-container');
+            const loadingIndicator = document.getElementById('loading-indicator');
+            const totalProductsInfo = document.getElementById('total-products-info');
+
+            // Simulate a network delay (optional, but good practice to show loading state)
+            setTimeout(() => {
+                // Clear loading indicator
+                container.innerHTML = '';
+                
+                // Generate and append cards
+                const productHtml = products.map(createProductCard).join('');
+                container.innerHTML = productHtml;
+
+                // Update footer information
+                totalProductsInfo.textContent = `Showing ${products.length} unique digital products.`;
+
+            }, 500); // 500ms delay to simulate loading
+        }
+
+        // Simple interactive function (JavaScript requirement)
+        function handlePurchaseClick(id, name) {
+            // In a real app, this would initiate a payment flow.
+            // Since we can't use alert(), we update the UI temporarily.
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = 'Added! 🎉';
+            button.disabled = true;
+            button.classList.add('bg-green-500');
+            button.classList.remove('bg-primary-blue');
+            
+            console.log(`Product ID ${id} (${name}) selected for purchase.`);
+
+            // Reset button after a short time
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.disabled = false;
+                button.classList.remove('bg-green-500');
+                button.classList.add('bg-primary-blue');
+            }, 1500);
+        }
+
+        // Initialize the app when the window loads
+        window.onload = loadProducts;
+    </script>
+</body>
+</html>
